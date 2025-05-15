@@ -1,21 +1,70 @@
+/* General Layout */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    margin: 0;
+    background-color: #f9f9f9;
+    color: #333;
 }
 
 .container {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
 }
 
-.button {
+/* Section Styling */
+section {
+    padding: 2rem;
+    margin: 1rem 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+section p {
+    margin-bottom: 1rem;
+}
+
+/* Header Styling */
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+header nav a {
+    color: #fff;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header .contact-button {
+    background: #007bff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Button Styling */
+.button, form button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -24,35 +73,11 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
 }
 
-.button:hover {
+.button:hover, form button:hover {
     background-color: #0056b3;
 }
 
-header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
-}
-
-header nav a {
-    color: #fff;
-    margin: 0 1rem;
-    text-decoration: none;
-}
-
-header .contact-button {
-    background: #007BFF;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-}
-
-section {
-    padding: 2rem;
-    margin: 1rem 0;
-}
-
+/* Form Styling */
 form label {
     display: block;
     margin: 1rem 0 0.5rem;
@@ -62,13 +87,52 @@ form input, form textarea {
     width: 100%;
     padding: 0.5rem;
     margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-form button {
-    background: #007BFF;
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #333;
     color: #fff;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    margin-top: 2rem;
+}
+/* Card Styling */
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+.card p {
+    margin: 0.5rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    header nav a {
+        display: block;
+        margin: 0.5rem 0;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
 }
