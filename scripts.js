@@ -39,4 +39,44 @@ document.addEventListener('DOMContentLoaded', function () {
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll();
     }
+
+    // Products carousel logic
+    // Carousel
+    const track = document.querySelector('.products-grid.carousel-track');
+    const cards = document.querySelectorAll('.products-grid.carousel-track .product-card');
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    let currentIndex = 0;
+
+    // Determine how many cards to show based on screen width
+    function getCardsPerView() {
+        if (window.innerWidth >= 1100) return 3;
+        if (window.innerWidth >= 700) return 2;
+        return 1;
+    }
+
+    function updateCarousel() {
+        const cardsPerView = getCardsPerView();
+        const cardWidth = cards[0].offsetWidth + 32; // 32px gap
+        const maxIndex = Math.max(0, cards.length - cardsPerView);
+        currentIndex = Math.min(currentIndex, maxIndex);
+        track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === maxIndex;
+    }
+
+    if (track && cards.length && prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+            currentIndex = Math.max(0, currentIndex - 1);
+            updateCarousel();
+        });
+        nextBtn.addEventListener('click', () => {
+            const cardsPerView = getCardsPerView();
+            const maxIndex = Math.max(0, cards.length - cardsPerView);
+            currentIndex = Math.min(maxIndex, currentIndex + 1);
+            updateCarousel();
+        });
+        window.addEventListener('resize', updateCarousel);
+        updateCarousel();
+    }
 });
